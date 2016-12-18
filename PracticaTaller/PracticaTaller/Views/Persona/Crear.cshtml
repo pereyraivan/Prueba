@@ -1,0 +1,10 @@
+﻿@model PracticaTaller.ViewModels.PersonaViewModel
+
+<h2>Crear</h2>
+
+@using (Html.BeginForm("GuardarPersona", "Persona"))
+{
+    @Html.EditorForModel()
+    <input type="submit"/>
+}
+

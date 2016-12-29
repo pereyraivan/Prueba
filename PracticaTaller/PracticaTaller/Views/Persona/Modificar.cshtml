@@ -1,0 +1,32 @@
+﻿@model PracticaTaller.Models.AccesoDatos.Persona
+@{
+    ViewBag.Title = "Modificar";
+}
+
+<h2>Modificar</h2>
+
+<form action="/Persona/GuardarModificacion">
+    <br />
+
+    <label>Nombre:</label>
+    <input name="Nombre" value="@Model.Nombre" />
+    <br />
+
+    <label>Apellido:</label>
+    <input name="Apellido" value="@Model.Apellido" />
+    <br />
+
+    <label>Dni:</label>
+    <input name="Dni" value="@Model.Dni" />
+
+    @Html.Hidden("Codigo", @Model.Codigo);
+    <br />
+    @if (ViewBag.Mensaje != null)
+    {
+        <h3>View.Bag.Mensaje</h3>
+    }
+    <input type="submit" value="Guardar" />
+    <input type="submit" value="Nuevo Persona" />
+
+</form>
+

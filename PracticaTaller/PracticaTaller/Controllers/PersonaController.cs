@@ -17,6 +17,12 @@ namespace PracticaTaller.Controllers
         {
             return View(new PersonaViewModel());
         }
+        public ActionResult Listar()
+        {
+            var listaPersona = gestor.Listar();
+            return View(listaPersona);
+        }
+
         public ActionResult GuardarPersona(PersonaViewModel persona)
         {
             var per = new Persona
@@ -27,7 +33,21 @@ namespace PracticaTaller.Controllers
 
             };
             gestor.GuardarPersona(per);
-            return null;
+            return RedirectToAction("Listar");
+        }
+
+        public ActionResult Modificar(int id)
+
+        {
+            var personaParaModificar = gestor.obtenerPorId(id);
+            return View(personaParaModificar);
+        }
+        public ActionResult GuardarModificacion(Persona persona)
+        {
+            gestor.Modificar(persona);
+            return RedirectToAction("Listar");
+                 
+
         }
     }
 }

@@ -1,0 +1,22 @@
+﻿@model List<PracticaTaller.Models.AccesoDatos.Persona>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+<table class="table-bordered table-striped">
+    <tbody>
+        @foreach (var persona in Model)
+        {
+            <tr>
+                <td>@persona.Nombre</td>
+                <td>@persona.Apellido</td>
+                <td>@persona.Dni</td>
+                <td>@Html.ActionLink("Modificar", "Modificar", new { id = persona.Codigo })</td>
+                <td>@Html.ActionLink("Crear Nuevo", "Crear")</td>
+            </tr>
+        }
+    </tbody>
+</table> 
+
